@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Down Events Examples</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Inconsolata|Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='styles/style.css' />
+  </head>
+  <body>
+    <main>
+      <section id="introduction" aria-label="Down events introduction">
+        <h1>Understanding Pointer Cancellation <span class="presentedby">Presented by <strong>Christina Adams</strong></span></h1>
+        
+        <p>A <strong>down event</strong> refers to an event that is fired when a button on a pointer tool (ex. mouse), or keyboard key is pressed.</p>
+        <p>There are multiple ways to trigger a down-type event in JavaScript.</p>
+        <p>We will discuss the most common ones.</p>
+        <a class="next-button" href="#eventsBasics">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+        </a>
+      </section>
+      <section id="eventsBasics" aria-label="What are Events?">
+        <h2>What are Events?</h2>
+        <ul>
+          <li>Events are actions or things that happen in the the DOM (Document Object Model == The skeleton of your website that the browser reads). The system notifies you of the event so you can respond to it in some way.</li>
+          <li>There are <strong><span class="underlined">lots</span></strong> of types of events.</li>
+          <li>An event can be triggered by a number of <strong>user actions</strong> (mouse click, keyboard press, touch).</li>
+          <li>An event can also be triggered by a number of <strong>programatic events</strong> (loading, error).</li>
+          <li>Web events are defined by the browser, and accessed by a programming language (usually JavaScript) through an API. Each browser (potentially) handles events in different ways. There is general consensus on specs for handling common events across browser brands, but that is not always the case.</li>
+          <li>Coders <strong>register an event handler</strong> when we want a function to run in response to interaction with a specific element.</li>
+        </ul>
+        <a class="next-button" href="#eventDemo1">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+          <span class="sr-only">Go to Registering Events</span>
+        </a>
+      </section>
+      <section id="eventDemo1" aria-label="Registering events">
+        <h2>Registering a simple event handler</h2>
+        <ul>
+          <li>Events have properties coders can use to know details about the event such as <span class="code">Event.target</span></li>
+          <li>Events have methods that affect the results of the event. For example <span class="code">event.preventDefault()</span> cancels the default behavior of the event if it is cancelable.</li>
+          <li>The demo below is a simple event handler that is registered for the <span class="code">click event</span> of the button element and includes a function expression that is to be executed on this event.</li>
+        </ul>
+        
+        <div class="demo-stage">
+          <h3>A basic click event</h3>
+          <div class="columns">
+            <pre><code>
+button.addEventListener('click', function(){
+ hiddenContent.style.display = 'block';
+});
+            </code></pre>
+            <div class="demo-buttons">
+              <button id="demo1Button">Click me to see the hidden content!</button>
+              <div class="missing-content">
+                <p class="hidden" id="demo1Content" aria-live="polite">> The <strong>click event</strong> was successful!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <a class="next-button" href="#mousedownDemo">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+          <span class="sr-only">Go to Mousedown mouseup events</span>
+        </a>
+      </section>
+      <section id="mousedownDemo" aria-label="Mousedown and mouseup events">
+        <h2>Mousedown and Mouseup events</h2>
+        <p>The click event previously is a shortcut that combines several different events <br><span class="code">mouseup</span> + <span class="code">keydown of enter key</span> + <span class="code">keyup of spacebar</span> + <span class="code">touchend on touchscreen</span></p>
+        <p>If we look at the <span class="code"><strong>mousedown</strong></span> and <span class="code"><strong>mouseup</strong></span> events we can see a singular event in more detail.<p>
+        
+        <div class="demo-stage">
+          <h3>Mousedown and Mouseup demo</h3>
+          <!-- <p class="instruction-text">A note for non-visual users: This code example illustrates a mouse-only event.</p> -->
+          <div class="columns">
+            <pre><code>
+button.addEventListener('mousedown', function(){
+  hiddenContent1.style.display = 'block';
+});
+button.addEventListener('mouseup', function(){
+  hiddenContent2.style.display = 'block';
+});
+            </code></pre>
+            <div class="demo-buttons">
+              <p class="instruction-text">With the mouse pointer on the button press the mouse button down and hold. This will trigger the first hidden text content to appear. Releasing the mouse button will trigger the second hidden text content to appear.</p>
+    
+              <button id="demo2Button">Click down and hold. Breathe. Release.</button>
+              <div class="missing-content">
+                <p class="hidden" id="demo2Down">> <strong>Mousedown</strong> event fired</p>
+              </div>
+              <div class="missing-content">
+                <p class="hidden" id="demo2Up">> <strong>Mouseup</strong> event fired</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="next-button" href="#keydownDemo">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+          <span class="sr-only">Go to keydown and keyup events</span>
+        </a>
+      </section>
+      <section id="keydownDemo" aria-label="Keydown and Keyup events">
+        <h2>Keydown and Keyup events</h2>
+        <p>We can do similar event handlers with individual keyboard keys using the <span class="code"><strong>keydown</strong></span> and <span class="code"><strong>keyup</strong></span> events.</p>
+        <div class="demo-stage">
+          <h3>Keydown and Keyup demo</h3>
+          <div class="columns">
+            <pre><code>
+button.addEventListener('keydown', function(){
+  hiddenContent1.style.display = 'block';
+});
+button.addEventListener('keyup', function(){
+  hiddenContent2.style.display = 'block';
+});
+            </code></pre>
+            <div class="demo-buttons">
+              <p class="instruction-text">Using the keyboard focus on the button. Press and hold the spacebar. This will display the first hidden content element. Release the spacebar to display the second hidden content element.</p>
+              <button id="demo3Button">Activate with spacebar. Breathe. Release.</button>
+              <div class="missing-content">
+                <p class="hidden" id="demo3Down" aria-live="polite">> <strong>Keydown</strong> event fired for spacebar</p>
+              </div>
+              <div class="missing-content">
+                <p class="hidden" id="demo3Up" aria-live="polite">> <strong>Keyup</strong> event fired for spacebar</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="next-button" href="#hoverDemo">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+          <span class="sr-only">Go to Hover can act like down event</span>
+        </a>
+      </section>
+      
+      <section id="hoverDemo" aria-label="Hover can act like down event">
+        <h2>Hover can act like down on mobile</h2>
+        <ul>
+          <li>CSS is usually used to define a hover (and hopefully focus) state of a clickable element.</li>
+          <li>On mobile and other touch devices there is no <span class="code">:hover</span> state.</li>
+          <li>Natively on mobile <span class="code">:hover</span> is fired on <span class="code">touchstart</span> or the moment your finger or clicking implement is pressed on the element.</li>
+        </ul>
+        
+        <div class="demo-stage">
+          <h3>Hover CSS demo</h3>
+          <p class="instruction-text">To see this effect on a non-mobile device you will need to use a mobile emmulator. In Chrome this can be done in dev tools.</p>
+          <div class="columns">
+            <pre><code>
+button.hover-effect:hover{
+  transform:scale(1.2);
+}
+button.hover-effect:hover + .showMe p{
+  display:block;
+}
+            </code></pre>
+            <div class="demo-buttons">
+              <button class="hover-effect" id="hoverButton">Hover on desktop, Click on mobile</button>
+              <div class="missing-content showMe">
+                <p class="hidden" id="hoverDown">> <strong>:Hover CSS</strong> is triggered</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="next-button" href="#a11yImpact">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+          <span class="sr-only">Go to Accessibility of down events</span>
+        </a>
+      </section>
+      
+      <section id="a11yImpact" aria-label="Accessibility of down events">
+        <h2>Accessibility consideration for down events</h2>
+        <p>WCAG 2.1 criterion 2.5.2: Pointer event cancellation</p>
+        <ul>
+          <li>No Down Events</li>
+          <li>Abort or Undo</li>
+          <li>Up reversal</li>
+          <li>Down event is essential (emulating keyboard key press)</li>
+        </ul>
+        <p>Firing a function on the <strong>up event</strong> allows a user to cancel the event by dragging the pointer or finger off the target without firing the function.</p>
+        <p>If function is placed on the down event the function is fired immediately on the down even or the pointer or key.</p>
+        
+        <div class="demo-stage">
+          <h3>Issues with mousedown and mouseup events</h3>
+          <p class="instruction-text">There is no escaping the kittens once the button is pressed. Press and hold the mouse button or enter.</p>
+          <div class="columns">
+            <button id="demo4Button">Annoying down event kittens</button>
+            <div id="demo4Content" class="missing-content" aria-live="polite"></div>
+          </div>
+          <div class="columns">
+            <div>
+              <p class="instruction-text">There is a way to cancel the new tab window loading google in this example. Press and hold the mouse or enter key, but then slide the mouse off of the button.</p>
+              <button href="https://google.com" target="_blank" id="demo6Button">Go to Google on up event</button>
+            </div>
+            <div>
+              <p class="instruction-text">There is no way to cancel the new browser tab going to google. Press and hold the mouse or enter key, the browser will still open a new tab.</p>
+              <button href="https://google.com" target="_blank" id="demo5Button">Go to Google on a down event</button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="demo-stage">
+          <h3>Issues with Keydown events</h3>
+          <div class="columns">
+            <div>
+              <button id="demo9Button">Keyup Log</button>
+              <div id="demo9Content" class="missing-content"></div>
+            </div>
+            <div>
+              <button id="demo8Button">Keydown Log</button>
+              <div id="demo8Content" class="missing-content"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="demo-stage">
+          <h3>Issues with mobile touchstart events</h3>
+          <p class="instruction-text">For this demo you will need to emulate a mobile device. In chrome this can be done using the dev tools.</p>
+          <div class="columns">
+            <div>
+              <button href="https://google.com" id="demo7Button">Mobile Touchstart go to Google in a new window</button>
+            </div>
+          </div>
+        </div>
+        
+        <a class="next-button" href="#questions">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+          <title>Down arrow</title>
+          <path fill="#fff" d="M32 16c0-8.837-7.163-16-16-16s-16 7.163-16 16 7.163 16 16 16 16-7.163 16-16zM3 16c0-7.18 5.82-13 13-13s13 5.82 13 13-5.82 13-13 13-13-5.82-13-13z"></path>
+          <path fill="#fff" d="M9.914 11.086l-2.829 2.829 8.914 8.914 8.914-8.914-2.828-2.828-6.086 6.086z"></path>
+          </svg>
+          <span class="sr-only">Go to questions</span>
+        </a>
+      </section>
+      
+      <section id="questions" aria-label="Questions?">
+        <h2>Questions?</h2>
+      </section>
+
+    </main>
+    <footer>
+      <p>Sources:</p>
+      <ul>
+        <li>WCAG 2.1 Understanding Success Criterion 2.5.2 Pointer Cancellation <a href="https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation.html" target="_blank">https://www.w3.org/WAI/WCAG21/Understanding/pointer-cancellation.html</a></li>
+        <li>MDN Mozilla docs Introduction to events: <a href="https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events" target="_blank">https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events</a></li>
+      </ul>
+    </footer>
+    <script type="text/javascript" src="scripts/event-demo.js"></script>
+  </body>
+</html>
