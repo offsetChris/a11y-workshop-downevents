@@ -10,7 +10,7 @@
     <main>
       <section id="introduction" aria-label="Down events introduction">
         <h1>Understanding Pointer Cancellation <span class="presentedby">Presented by <strong>Christina Adams</strong></span></h1>
-        
+        <p>Pointer down events get special attention in WCAG 2.1.</p>
         <p>A <strong>down event</strong> refers to an event that is fired when a button on a pointer tool (ex. mouse), or keyboard key is pressed.</p>
         <p>There are multiple ways to trigger a down-type event in JavaScript.</p>
         <p>We will discuss the most common ones.</p>
@@ -53,8 +53,8 @@
           <h3>A basic click event</h3>
           <div class="columns">
             <pre><code>
-button.addEventListener('click', function(){
- hiddenContent.style.display = 'block';
+<span class="sx-el">button</span>.<span class="sx-met">addEventListener</span>(<span class="sx-prop">'click'</span>, <span class="sx-fun">function</span>(){
+ <span class="sx-el">hiddenContent.style.display</span> <span class="sx-fun">= </span><span class="sx-prop">'block'</span>;
 });
             </code></pre>
             <div class="demo-buttons">
@@ -85,11 +85,11 @@ button.addEventListener('click', function(){
           <!-- <p class="instruction-text">A note for non-visual users: This code example illustrates a mouse-only event.</p> -->
           <div class="columns">
             <pre><code>
-button.addEventListener('mousedown', function(){
-  hiddenContent1.style.display = 'block';
+<span class="sx-el">button</span>.<span class="sx-met">addEventListener</span>(<span class="sx-prop">'mousedown'</span>, <span class="sx-fun">function()</span>{
+  <span class="sx-el">hiddenContent1.style.display</span> <span class="sx-fun">=</span> <span class="sx-prop">'block'</span>;
 });
-button.addEventListener('mouseup', function(){
-  hiddenContent2.style.display = 'block';
+<span class="sx-el">button</span>.<span class="sx-met">addEventListener</span>(<span class="sx-prop">'mouseup'</span>, <span class="sx-fun">function()</span>{
+  <span class="sx-el">hiddenContent2.style.display</span> <span class="sx-fun">=</span> <span class="sx-prop">'block'</span>;
 });
             </code></pre>
             <div class="demo-buttons">
@@ -121,11 +121,11 @@ button.addEventListener('mouseup', function(){
           <h3>Keydown and Keyup demo</h3>
           <div class="columns">
             <pre><code>
-button.addEventListener('keydown', function(){
-  hiddenContent1.style.display = 'block';
+<span class="sx-el">button</span>.<span class="sx-met">addEventListener</span>(<span class="sx-prop">'keydown'</span>, <span class="sx-fun">function()</span>{
+  <span class="sx-el">hiddenContent1.style.display</span> <span class="sx-fun">=</span> <span class="sx-prop">'block'</span>;
 });
-button.addEventListener('keyup', function(){
-  hiddenContent2.style.display = 'block';
+<span class="sx-el">button</span>.<span class="sx-met">addEventListener</span>(<span class="sx-prop">'keyup'</span>, <span class="sx-fun">function()</span>{
+  <span class="sx-el">hiddenContent2.style.display</span> <span class="sx-fun">=</span> <span class="sx-prop">'block'</span>;
 });
             </code></pre>
             <div class="demo-buttons">
@@ -163,11 +163,11 @@ button.addEventListener('keyup', function(){
           <p class="instruction-text">To see this effect on a non-mobile device you will need to use a mobile emmulator. In Chrome this can be done in dev tools.</p>
           <div class="columns">
             <pre><code>
-button.hover-effect:hover{
-  transform:scale(1.2);
+<span class="sx-el">button.hover-effect:hover</span>{
+  <span class="sx-prop">transform:scale(1.2)</span>;
 }
-button.hover-effect:hover + .showMe p{
-  display:block;
+<span class="sx-el">button.hover-effect:hover</span> + <span class="sx-el">.showMe p</span>{
+  <span class="sx-prop">display:block</span>;
 }
             </code></pre>
             <div class="demo-buttons">

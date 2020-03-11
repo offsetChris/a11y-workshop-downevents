@@ -174,7 +174,7 @@ pre{
 }
 footer{
   padding:20px;
-  font-size:.8rem;
+  font-size:1rem;
 }
 .sr-only{
   height:1px;
@@ -184,6 +184,22 @@ footer{
   line-height:0;
   clip:rect(0,0,0,0);
 }
+
+/*Syntax highlighting */
+.sx-el{
+  color:#f56af5;
+}
+.sx-fun{
+  color:#9ec0fa;
+}
+.sx-met{
+  color:yellow;
+}
+.sx-prop{
+  color:#35f1ff;
+}
+
+/* Mobile responsive */
 @media screen and (max-width: 600px){
   h1{
     font-size:2rem;
