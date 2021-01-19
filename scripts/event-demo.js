@@ -79,7 +79,7 @@
   var demo7 = document.getElementById('demo7Button');
   var demo7Content = document.getElementById('demo7Content');
   demo7.addEventListener('touchstart',function(){
-    this.style.background = 'red';
+    // this.style.background = 'red';
     var url = this.getAttribute('href');
     window.open(url, '_blank');
   });
