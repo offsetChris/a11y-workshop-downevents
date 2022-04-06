@@ -1,9 +1,6 @@
 (function(){
   var button = document.getElementById('targetButton');
   var hiddenText = document.getElementById('showMe');
-  /*
-  > Vanilla Javascript Examples
-  */ 
   
   // *** Basic Click Event
   var demo1 = document.getElementById('demo1Button');
@@ -12,7 +9,7 @@
     demo1Hidden.style.display = 'block';
   });
   
-  // *** Mouse Events
+  // *** Basic Mouse Events
   var demo2 = document.getElementById('demo2Button');
   var demo2Down = document.getElementById('demo2Down');
   var demo2Up = document.getElementById('demo2Up');
@@ -23,7 +20,7 @@
     demo2Up.style.display = 'block';
   });
   
-  // *** Key Events
+  // *** Basic Key Events
   var demo3 = document.getElementById('demo3Button');
   var demo3Down = document.getElementById('demo3Down');
   var demo3Up = document.getElementById('demo3Up');
@@ -37,18 +34,45 @@
     if(event.keyCode === 32){
       demo3Up.style.display = "block";
     }
-  })
-  
-  // *** Demo 3 is CSS based
-  
-  // *** Obnoxious down event
+  });
+
+  // *** Annoying key up
   var demo4 = document.getElementById('demo4Button');
   var demo4Content = document.getElementById('demo4Content');
+  demo4.addEventListener('keyup', function(){
+    var log = document.createElement('p');
+    log.innerText = 'key up: '+ event.keyCode;
+    demo4Content.appendChild(log);
+  });
+
+  // *** Annoying key down
+  var demo5 = document.getElementById('demo5Button');
+  var demo5Content = document.getElementById('demo5Content');
+  demo5.addEventListener('keydown', function(){
+    var log = document.createElement('p');
+    log.innerText = 'key down: '+ event.keyCode;
+    demo5Content.appendChild(log);
+  });
+
+  // *** Annoying hover demo 6 is CSS based
+
+  // *** Annoying touchstart on mobile
+  var demo6 = document.getElementById('demo7Button');
+  var demo6Content = document.getElementById('demo7Content');
+  demo6.addEventListener('touchstart',function(){
+    this.style.background = 'limegreen';
+    demo6Content.style.display = 'block';
+  });
+  
+  // *** Annoying Kittens
+  var demo8 = document.getElementById('demo8Button');
+  var demo8Content = document.getElementById('demo8Content');
   var count = 0;
-  demo4.addEventListener('mousedown', function(){
+
+  function unleashKittens(){
     var newel = document.createElement('span');
-    var randomHeight = Math.floor(Math.random() * (300 - 50) + 50);
-    var randomWidth = Math.floor(Math.random() * (300 - 50) + 50);
+    var randomHeight = Math.floor(Math.random() * (400 - 50) + 50);
+    var randomWidth = Math.floor(Math.random() * (400 - 50) + 50);
     var randomColor = Math.floor(Math.random()*16777215).toString(16);
     count++;
     newel.className = 'annoying';
@@ -56,53 +80,16 @@
     newel.style.width = randomWidth + 'px';
     newel.style.background = '#'+randomColor;
     newel.style.left = (randomWidth - 50) + 'px';
+    newel.style.top = (randomHeight - (randomHeight/2) - 50) + 'px';
     newel.innerHTML = '<img src="https://placekitten.com/'+randomWidth+'/'+randomHeight+'" alt="Kitten image number '+count+'">';
-    demo4Content.appendChild(newel);
-  });
-  //TODO: add enter and space keydown
-  
-  // *** Obnoxious new window
-  var demo5 = document.getElementById('demo5Button');
-  demo5.addEventListener('mousedown', function(){
-    var url = this.getAttribute('href');
-    window.open(url, '_blank');
-  });
-  //TODO: add enter and space keydown
-  var demo6 = document.getElementById('demo6Button');
-  demo6.addEventListener('click', function(){
-    var url = this.getAttribute('href');
-    window.open(url, '_blank');
-  });
-  //TODO: add enter and space keydown
-  
-  // *** additional examples
-  var demo7 = document.getElementById('demo7Button');
-  var demo7Content = document.getElementById('demo7Content');
-  demo7.addEventListener('touchstart',function(){
-    // this.style.background = 'red';
-    var url = this.getAttribute('href');
-    window.open(url, '_blank');
-  });
-  
-  var demo8 = document.getElementById('demo8Button');
-  var demo8Content = document.getElementById('demo8Content');
+    demo8Content.appendChild(newel);
+  }
+
+  demo8.addEventListener('mousedown', unleashKittens);
   demo8.addEventListener('keydown', function(){
-    var log = document.createElement('p');
-    log.innerText = 'key down: '+ event.keyCode;
-    demo8Content.appendChild(log);
-  });
-  
-  var demo9 = document.getElementById('demo9Button');
-  var demo9Content = document.getElementById('demo9Content');
-  demo9.addEventListener('keyup', function(){
-    var log = document.createElement('p');
-    log.innerText = 'key up: '+ event.keyCode;
-    demo9Content.appendChild(log);
-  });
-  
-  // *** Things that act like down events on mobile :hover
-  // button.classList.add('hover-effect');
-  
-  
+    if(event.keyCode === 32){
+      unleashKittens();
+    }
+  })
   
 })();

@@ -7,10 +7,10 @@ html{
 }
 body{
   font-family: 'Lato', Arial, sans-serif;
-  font-size:20px;
+  font-size:1.2rem;
   font-weight:lighter;
-  line-height:1.4;
-  background:#27344c;
+  line-height:1.5;
+  background:#141155;
   color:#fff;
   margin:0px;
   padding:0px;
@@ -20,12 +20,29 @@ body{
 h1{
   text-align:center;
   font-size:3.7rem;
-  margin-bottom:3em;
+  /*margin-bottom:2em;*/
+}
+.get-this{
+  display: flex;
+  justify-content: space-between;
+}
+.get-this img{
+  max-height: 200px;
+}
+.get-this .code{
+  flex-grow: 1;
+  margin-right: 50px;
+  align-self: center;
+}
+.get-link{
+  text-align: center;
+  font-size: 2em;
 }
 .presentedby{
   display:block;
   font-size:2rem;
   font-weight:normal;
+  margin-top: 2em;
 }
 h2{
   display:block;
@@ -39,11 +56,13 @@ a:hover, a:focus{
   color:#ccc;
 }
 a:focus, button:focus{
-  outline-color:#F5D027;
+  outline-color:#E57459;
   outline-style:solid;
+  outline-offset: 2px;
+  outline-width: 3px;
 }
 section{
-  max-width:1090px;
+  max-width:1200px;
   margin:0 auto;
   padding:40px;
   font-size:1.2em;
@@ -57,27 +76,42 @@ p{
 li{
   margin:1.2rem 0;
 }
+.si-logo{
+  margin: 60px 0 40px 0;
+  text-align: center;
+}
+.si-logo svg{
+  max-height: 3em;
+}
+#introduction .si-logo{
+  text-align: left;
+  margin: 0 0 20px 0;
+}
+#introduction .si-logo svg{
+  max-height: 2rem;
+  margin: 0;
+
+}
 .missing-content{
   display:block;
-  border:2px dashed #aaa;
+  border:3px dashed #9ACAE3;
   background:#0e1a2e;
-  min-height:3.5rem;
+  min-height:3.8rem;
   border-radius:10px;
   margin:0px 0px 10px 0px;
   padding:10px;
 }
-#demo8Content.missing-content, #demo9Content.missing-content{
+#demo4Content.missing-content, #demo5Content.missing-content{
   min-width:150px;
 }
 .next-button{
   display:block;
   position:absolute;
-  bottom:30px;
+  bottom:0;
   left:1050px;
 }
 .instruction-text{
   font-size:1rem;
-  font-style:italic;  
 }
 .columns .instruction-text{
   padding:10px;
@@ -93,7 +127,12 @@ li{
 .code{
   font-family: 'Inconsolata', monospace;
   background:#111;
+  border-radius: 5px;
   padding:5px;
+  border-bottom: 2px solid #9ACAE3;
+  border-right: 2px solid #9ACAE3;
+  border-top: 1px dashed #115E81;
+  border-left: 1px dashed #115E81;
 }
 .underlined{
   text-decoration:underline;
@@ -108,20 +147,26 @@ button{
   font-size:1rem;
   border-radius:4px;
   background:#f5f5f5;
+  border: none;
 }
 button:hover, button:focus{
   background:#aaa;
 }
+/* Demo 6 CSS */
 button.hover-effect:hover, button.hover-effect:focus{
   transform:scale(1.2);
 }
 button.hover-effect:hover + .showMe p, button.hover-effect:focus + .showMe p{
   display:block;
 }
+/**/
+#demo8Button{
+  align-self: flex-start;
+  height: 9em;
+}
 .demo-stage{
   margin:10px 0;
   position:relative;
-  z-index:5;
 }
 .columns{
   display:flex;
@@ -132,8 +177,10 @@ pre{
   flex-shrink:0;
   position:relative;
   background:#111;
-  border-bottom: 3px solid #0BBCD6;
-  border-right: 3px solid #0BBCD6;
+  border-bottom: 3px solid #9ACAE3;
+  border-right: 3px solid #9ACAE3;
+  border-top: 2px solid #115E81;
+  border-left: 2px solid #115E81;
   padding:15px;
   font-size:1.1rem;
   overflow-x:auto;
@@ -152,25 +199,27 @@ pre{
   position:absolute;
   left:0px;
 }
-#demo4Content{
-  min-height:300px;
-  min-width:50%;
+#demo8Content{
+  min-height:70vh;
+  flex-basis:50%;
+  flex-grow:1;
   position:relative;
 }
 #questions h2{
   border:none;
-  margin-top:30%;
+  margin-top:20vh;
   text-align:center;
-  font-size:1.5em;
+  font-size:5rem;
 }
-#demo8Content, #demo9Content{
+#demo4Content, #demo5Content{
   display:inline-block;
   float:right;
   margin-top:40px;
+  padding: 20px;
 }
-#demo8Content p, #demo9Content p{
+#demo4Content p, #demo5Content p{
   margin:0px;
-  font-size:1rem;
+  font-size:1.2rem;
 }
 footer{
   padding:20px;
@@ -205,12 +254,21 @@ footer a{
 /* Mobile responsive */
 @media screen and (max-width: 600px){
   h1{
-    font-size:2rem;
+    font-size:3rem;
+  }
+  .get-this{
+    flex-direction: column;
+  }
+  .get-this img{
+    display: none;
   }
   section{
-    padding:10px;
+    padding:20px;
   }
   ul{
+  }
+  button{
+    margin: 20px 0;
   }
   .code{
     word-wrap:break-word;
@@ -221,7 +279,10 @@ footer a{
   .columns{
     flex-direction:column;
   }
-  #demo8Content, #demo9Content{
+  footer .si-logo svg{
+    max-height: 2rem;
+  }
+  #demo4Content, #demo5Content{
     float:none;
     clear:both;
     display:block;
