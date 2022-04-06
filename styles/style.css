@@ -211,9 +211,14 @@ pre{
   text-align:center;
   font-size:5rem;
 }
+.log-container{
+  display: flex;
+}
+.log-container button{
+  align-self: flex-end;
+}
 #demo4Content, #demo5Content{
   display:inline-block;
-  float:right;
   margin-top:40px;
   padding: 20px;
 }
